@@ -47,15 +47,15 @@ alter table member2 add constrain idkey primary key(id);
 --삭제시
 alter table member2 drop constrain id
 --23) 도서2(book2) 테이블에 도서코드(bookid)를 기본키로 도서분류(bookkind)를 외래키로 추가하시오.
-create table bookkind(kindcode varchar(100) primary key, kindname varchar(100);
+create table bookkind(kindcode varchar(100) primary key, kindname varchar(100));
 insert into bookkind values('IT', 'IT관련서적');
 insert into bookkind values('NV', '소설');
 insert into bookkind values('DV', '자기개발');
 insert into bookkind values('HC', '역사');
 insert into bookkind values('TC', '일반상식');
 
-alter table book2 add constrain bpk2 primary key (bookid);
-alter table book2 add constrain bfk2 foreign key (bookkind) references bookkind(kindcode); 
+alter table book2 add constraint bpk2 primary key(bookid);
+alter table book2 add constraint bfk2 foreign key (bookkind) references bookkind(kindcode); 
 
 --24) 도서2(book2) 테이블에서 출판일(pubdate)가 2022년 8월 인 데이터의 수량을 5씩 더 증가시키시오.
 update book2 set bookcount = bookcount+5 where pubdate between '2022-08-01' and '2022-08-31';
